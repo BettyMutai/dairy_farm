@@ -6,9 +6,44 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
   </head>
 
   <body>
+    <div class="container">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-nav" aria-hidden="">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="glyphicon glyphicon-menu-hamburger">
+        <span></button>
+        <a class="navbar-brand page-scroll" href="/"><p class="logo">Dairy</p></a>
+      </div>
+      <!-- navbar-header -->
+      <div id="menu-nav" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <%= link_to 'New Dairy', new_dairy_path %>
+          </li>
+          <li>
+            <%= link_to 'Check Produce', dairies_path%>
+          </li>
+          <%if current_user %>
+          <li>
+            <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
+          </li>
+          <%else%>
+          <li>
+            <%= link_to 'Log In', new_user_session_path %>
+          </li>
+          <li>
+            <%= link_to 'Sign Up', new_user_registration_path %>
+          </li>
+          <%end%>
+        </ul>
+      </div>
+      <!-- navbar-collapse -->
+    </div>
+    <!-- container-fluid -->
     <%= yield %>
   </body>
 </html>

@@ -13,3 +13,14 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= require jquery
+//= require bootstrap-sprockets
+//= require bootstrap-datepicker
+//= require highcharts
+//= require highcharts/themes/gray
+
+
+
+$(document).ready(function(){
+   $('.datepicker').datepicker();
+ });
